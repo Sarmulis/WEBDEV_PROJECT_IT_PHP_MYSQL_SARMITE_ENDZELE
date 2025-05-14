@@ -2,7 +2,7 @@
 require_once 'includes/db.php'; // Pareizs datubāzes savienojums
 
 // Izveido tabulu 'messages', ja tā neeksistē
-$conn->exec("CREATE TABLE IF NOT EXISTS messages (
+$pdo->exec("CREATE TABLE IF NOT EXISTS messages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,

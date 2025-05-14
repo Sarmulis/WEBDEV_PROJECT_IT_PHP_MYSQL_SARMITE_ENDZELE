@@ -3,7 +3,7 @@ require_once 'includes/db.php';
 require_once 'classes/Service.php';
 
 // Izveido Service klases objektu
-$service = new Service($conn); // Izmanto $conn, kas ir no db.php
+$service = new Service($pdo); // Izmanto $conn, kas ir no db.php
 
 // Pārbauda, vai ir norādīts ID
 if (isset($_GET['id'])) {

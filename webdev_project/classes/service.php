@@ -23,13 +23,6 @@ class Service {
         return $stmt->fetchAll();
     }
 
-     // Search services
-    public function search($keyword) {
-        $stmt = $this->pdo->prepare("SELECT * FROM services WHERE title LIKE :keyword OR description LIKE :keyword");
-        $stmt->execute(['keyword' => "%$keyword%"]);
-        return $stmt->fetchAll();
-    }
-
     // Update a service
     public function update($id, $title, $desc) {
         $stmt = $this->pdo->prepare("UPDATE services SET title = :title, description = :desc WHERE id = :id");
@@ -44,6 +37,13 @@ class Service {
     public function delete($id) {
         $stmt = $this->pdo->prepare("DELETE FROM services WHERE id = :id");
         $stmt->execute(['id' => $id]);
+    }
+
+    // Search services
+    public function search($keyword) {
+        $stmt = $this->pdo->prepare("SELECT * FROM services WHERE title LIKE :keyword OR description LIKE :keyword");
+        $stmt->execute(['keyword' => "%$keyword%"]);
+        return $stmt->fetchAll();
     }
 }
 ?>
